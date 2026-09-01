@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Отчёт по эффективности рекламы</title>
+<link rel="stylesheet" href="dash_style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Отчёт по эффективности продвижения</div>
+    <h1>Дашборд рекламной отчётности</h1>
+    <div class="report-period">Отчётный период: июль 2026 г.</div>
+    <p class="sub">Динамика трафика, обращений и стоимости привлечения по месяцам. Данные по сайту — с начала февраля&nbsp;2025&nbsp;г., Яндекс&nbsp;Бизнес — подключён с апреля&nbsp;2025, контекстная реклама — подключена с июня&nbsp;2026.</p>
+    <p class="sub legend-note">Цвет стрелок, отражающих динамику к предыдущему месяцу, — визуальная оценка «хорошо / плохо» для бизнеса. Стрелка показывает направление (снижение / рост / без изменений), цвет — оценку. Например, снижение стоимости ЦД — <b style="color:var(--green)">зелёная стрелка вниз</b>, так как это хорошо для бизнеса.</p>
+    <nav class="nav">
+      <a href="#summary">Ключевое за период</a>
+      <a href="#b1">Трафик и обращения</a>
+      <a href="#b2">Поведение на сайте</a>
+      <a href="#b3">Яндекс Бизнес</a>
+      <a href="#b4">Контекстная реклама</a>
+    </nav>
+  </header>
+
+  <!-- ВЫВОДЫ (вынесены вверх — сначала суть, потом детали) -->
+  <section id="summary">
+    <div class="sec-head">
+      <span class="sec-num">★</span>
+      <h2>Ключевое за период</h2>
+    </div>
+    <div class="notes">
+      <h3>Главное за июль 2026</h3>
+      <ul id="notes-list"></ul>
+    </div>
+  </section>
+
+  <!-- БЛОК 1 -->
+  <section id="b1">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>Трафик по источникам и целевые действия</h2>
+      <span class="note">посетители · с февраля 2025</span>
+    </div>
+    <div class="panel">
+      <h3>Как растёт аудитория и обращения</h3>
+      <p class="p-sub">Столбцы — посетители с накоплением по источникам. Бирюзовая линия — целевые действия сайта. Видно, как подключение каждого канала меняет объём трафика и обращений.</p>
+      <div class="chart-box"><canvas id="ch1"></canvas></div>
+    </div>
+    <div class="callout">
+      <b>Важно для чтения графика:</b> <b>январь 2025</b> исключён — настраивалось отслеживание целевых действий, данные неполные. В <b>октябре 2025</b> велись работы по сайту, что дало искусственный всплеск целевых действий (не отражает реального роста спроса). В <b>июне 2026</b> подключена контекстная реклама, что дало значимый рост трафика на сайт и количества целевых действий на сайте. В данные по трафику с контекста также включена статистика дополнительного лендинга, на который ведём на услугу имплантации. Основной рост трафика — за счёт лендинга: в июле на него пришлось около 70% всего трафика.
+    </div>
+  </section>
+
+  <!-- БЛОК 2 -->
+  <section id="b2">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>Поведение посетителей на сайте</h2>
+      <span class="note">весь трафик</span>
+    </div>
+    <div class="behave" id="behave"></div>
+    <div class="callout">
+      Поведенческие метрики показывают качество трафика и вовлечённость аудитории. Подключение нового канала на старте в норме даёт ухудшение поведенческих метрик, которые постепенно улучшаются по мере оптимизации трафика. Мы видим это на примере июня, когда подключение контекстной рекламы и тестирование новых сегментов дало ухудшение поведенческих метрик. Однако в июле за счёт оптимизации рекламных кампаний поведенческие метрики выровнялись.
+    </div>
+  </section>
+
+  <!-- БЛОК 3 -->
+  <section id="b3">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>Яндекс Бизнес</h2>
+      <span class="note" id="biz-note"></span>
+    </div>
+    <div class="kpis" id="biz-kpis"></div>
+    <div class="grid-2">
+      <div class="panel">
+        <h3>Объём и стоимость целевого действия</h3>
+        <p class="p-sub">Столбцы — сколько действий, линия — во сколько обходится каждое.</p>
+        <div class="chart-box short"><canvas id="ch-biz"></canvas></div>
+      </div>
+      <div class="panel">
+        <h3>CTR и конверсия в клиента</h3>
+        <p class="p-sub">Кликабельность рекламы и доля переходов, ставших целевым клиентом.</p>
+        <div class="chart-box short"><canvas id="ch-biz2"></canvas></div>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:18px">
+      <h3>Звонки: принятые и непринятые</h3>
+      <div class="chart-box short"><canvas id="ch-calls"></canvas></div>
+    </div>
+  </section>
+
+  <!-- БЛОК 4 -->
+  <section id="b4">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>Контекстная реклама (Директ)</h2>
+      <span class="note" id="direct-note"></span>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap">
+      <div class="seg" id="direct-seg">
+        <button data-m="Июнь" aria-pressed="false">Июнь</button>
+        <button data-m="Июль" aria-pressed="true">Июль</button>
+      </div>
+    </div>
+
+    <div class="kpis" id="direct-kpis"></div>
+
+    <div class="grid-2" style="margin-bottom:22px">
+      <div class="panel">
+        <h3>Из чего складываются целевые действия</h3>
+        <p class="p-sub">Распределение ЦД по типам за выбранный месяц.</p>
+        <div class="chart-box short"><canvas id="ch-donut"></canvas></div>
+      </div>
+      <div class="panel">
+        <h3>Динамика июнь → июль</h3>
+        <p class="p-sub">Как изменились ключевые показатели во втором месяце работы.</p>
+        <div class="kpis" id="direct-compare" style="margin-bottom:0"></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:800;margin:6px 0 16px">Кампании по услугам</h3>
+    <div id="camp-groups"></div>
+  </section>
+
+  <footer>
+    Дашборд рекламной отчётности<br>
+    Источники: Яндекс Метрика (2 счётчика) · Яндекс Бизнес · Яндекс Директ · Обновляется вручную
+  </footer>
+
+</div>
+
+<script src="chart.min.js"></script>
+<script src="data_inline.js"></script>
+<script src="dash_app.js"></script>
+</body>
+</html>
